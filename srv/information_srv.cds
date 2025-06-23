@@ -9,5 +9,7 @@ service CatalogService {
   function initSampleData() returns String;
   function registerGuest() returns String;
   function deleteRoom() returns String;
+  function deleteGuest() returns String;
   function updateRoom() returns String;
+  function updateGuest() returns String;
 }

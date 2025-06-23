@@ -6,11 +6,8 @@ entity Rooms {
       rate       : Decimal(10,2); 
       available  : Boolean; 
 } 
- 
 entity Guests { 
-  key ID        : Integer; 
+  key ID        : String; 
       name      : String; 
       email     : String; 
 } 
-
-    
