@@ -1,0 +1,15 @@
+# GET http://localhost:4004/odata/v4/catalog/Data_Rooms
+
+
+
+
+
+POST http://localhost:4004/odata/v4/catalog/initSampleData
+Content-Type: application/json
+
+{
+  "number": 903,
+  "type": "Deluxe",
+  "rate": 4200.00,
+  "available": true
+}
