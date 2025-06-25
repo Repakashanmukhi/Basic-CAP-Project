@@ -1,5 +1,4 @@
 var cds = require('@sap/cds');
-
 module.exports = async function (srv) {
   var { Rooms, Guests ,Bookings} = cds.entities('app.data');
   srv.on('ReadRooms', async () => {
