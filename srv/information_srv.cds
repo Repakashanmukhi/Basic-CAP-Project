@@ -6,10 +6,16 @@ service CatalogService {
   entity Data_Rooms as projection on data.Rooms;
   entity Data_Guests as projection on data.Guests;
 
-  function initSampleData() returns String;
-  function registerGuest() returns String;
+  function ReadRooms() returns String;
+  function ReadGuests() returns String;
+  function CreateRoom() returns String;
+  function CreateGuests() returns String;
   function deleteRoom() returns String;
   function deleteGuest() returns String;
   function updateRoom() returns String;
   function updateGuest() returns String;
+  function getRoomGuestJoin() returns String;
+  function getAvailableRooms() returns String;
+  function getRoomStatus() returns String;
+  function searchGuests() returns String;
 }
