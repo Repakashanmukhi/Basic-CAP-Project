@@ -9,25 +9,27 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:worklist",
-      "version": "1.18.0",
-      "toolsId": "92ffd6d8-827f-4036-9797-8fb73b3edca0"
-    },
     "dataSources": {
       "mainService": {
         "uri": "/odata/v4/catalog/",
         "type": "OData",
         "settings": {
-          "annotations": [],
           "odataVersion": "4.0"
         }
       }
+    },
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:worklist",
+      "version": "1.18.0"
     }
   },
   "sap.ui": {
     "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
     "icons": {
       "icon": "",
       "favIcon": "",
@@ -35,11 +37,6 @@
       "phone@2": "",
       "tablet": "",
       "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
     }
   },
   "sap.ui5": {
@@ -52,17 +49,7 @@
         "sap.fe.templates": {}
       }
     },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
     "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "visitors.i18n.i18n"
-        }
-      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -72,13 +59,16 @@
           "earlyRequests": true
         }
       },
-      "@i18n": {
+      "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
+        "settings": {
+          "bundleName": "visitors.i18n.i18n"
+        }
       }
     },
-    "resources": {
-      "css": []
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
     },
     "routing": {
       "config": {},
@@ -101,9 +91,8 @@
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/Data_Rooms",
+              "entitySet": "Data_Rooms",
               "variantManagement": "Page",
-              "hideFilterBar": true,
               "navigation": {
                 "Data_Rooms": {
                   "detail": {
@@ -128,15 +117,28 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Data_Rooms"
+              "entitySet": "Data_Rooms"
             }
           }
         }
       }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.viewExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "AfterListReportHeader": {
+              "className": "sap.ui.core.Fragment",
+              "fragmentName": "visitors.ext.fragment.CustomActions",
+              "type": "XML"
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "css": []
     }
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
   }
+
 }

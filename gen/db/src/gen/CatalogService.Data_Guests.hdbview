@@ -1,0 +1,5 @@
+VIEW CatalogService_Data_Guests AS SELECT
+  Guests_0.ID,
+  Guests_0.name,
+  Guests_0.email
+FROM app_data_Guests AS Guests_0

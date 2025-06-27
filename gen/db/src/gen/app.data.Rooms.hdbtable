@@ -1,0 +1,8 @@
+COLUMN TABLE app_data_Rooms (
+  "NUMBER" INTEGER NOT NULL,
+  name NVARCHAR(5000),
+  type NVARCHAR(5000),
+  rate DECIMAL(10, 2),
+  available BOOLEAN,
+  PRIMARY KEY("NUMBER")
+)

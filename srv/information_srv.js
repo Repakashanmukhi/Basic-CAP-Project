@@ -1,6 +1,6 @@
 var cds = require('@sap/cds');
 module.exports = async function (srv) {
-  var { Rooms, Guests ,Bookings} = cds.entities('app.data');
+  var { Rooms, Guests, Bookings } = cds.entities('app.data');
   srv.on('ReadRooms', async () => {
     var rooms = await cds.run(SELECT.from(Rooms));
     return rooms;
@@ -8,7 +8,7 @@ module.exports = async function (srv) {
   srv.on('ReadGuests', async () => {
     var guests = await cds.run(SELECT.from(Guests));
     return guests;
-  });  
+  });
   srv.on('CreateRoom', async () => {
     var sampleRooms = [
       { number: 101, name: 'Room A', type: 'Ordinary', rate: 3000, available: true },
@@ -19,22 +19,22 @@ module.exports = async function (srv) {
     return `Sample rooms created successfully!`;
   });
   srv.on('CreateGuests', async () => {
-    var sampleGuest = { ID: '8', name: 'Tarun',  email: 'tarun@gmail.com'};
-    await cds.run(INSERT.into(Guests).entries(sampleGuest));  
+    var sampleGuest = { ID: '8', name: 'Tarun', email: 'tarun@gmail.com' };
+    await cds.run(INSERT.into(Guests).entries(sampleGuest));
     return `Sample guest created successfully!`;
   });
-  srv.on('BookingRoom', async () =>{
+  srv.on('BookingRoom', async () => {
     var sampleBookings = [
-      { ID: 'B1', guest_ID: '1', room_ID: 101, date: '2025-06-25'},
-      { ID: 'B2', guest_ID: '2', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B3', guest_ID: '3', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B4', guest_ID: '4', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B5', guest_ID: '5', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B6', guest_ID: '6', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B7', guest_ID: '7', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B8', guest_ID: '8', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B9', guest_ID: '9', room_ID: 102, date: '2025-06-26'},
-      { ID: 'B10', guest_ID: '10', room_ID: 102, date: '2025-06-26'}
+      { ID: 'B1', guest_ID: '1', room_ID: 101, date: '2025-06-25' },
+      { ID: 'B2', guest_ID: '2', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B3', guest_ID: '3', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B4', guest_ID: '4', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B5', guest_ID: '5', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B6', guest_ID: '6', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B7', guest_ID: '7', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B8', guest_ID: '8', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B9', guest_ID: '9', room_ID: 102, date: '2025-06-26' },
+      { ID: 'B10', guest_ID: '10', room_ID: 102, date: '2025-06-26' }
     ];
     await cds.run(INSERT.into(Bookings).entries(sampleBookings));
   })
@@ -55,9 +55,9 @@ module.exports = async function (srv) {
   });
   srv.on('updateRoom', async (req) => {
     var { roomNumber, newRate } = req.data;
-    var updateData = { 
+    var updateData = {
       rate: 3000.00
-     };
+    };
     await cds.run(UPDATE(Rooms).set(updateData).where({ number: 101 }));
     return `Room ${roomNumber} updated successfully.`;
   });
@@ -66,7 +66,7 @@ module.exports = async function (srv) {
     var updateData = {
       email: 'shanukhirepaka@gmail.com'
     };
-    await cds.run(UPDATE(Guests).set(updateData).where({ ID:String(1) }));
+    await cds.run(UPDATE(Guests).set(updateData).where({ ID: String(1) }));
     return `Guest ${guestId} updated successfully.`;
   });
   srv.on('getRoomGuestJoin', async () => {
@@ -82,7 +82,7 @@ module.exports = async function (srv) {
       JOIN app_data_Guests AS G
         ON R.name = G.name
     `;
-    var result = await cds.run(query);   
+    var result = await cds.run(query);
     return result;
   });
   srv.on('getAvailableRooms', async () => {

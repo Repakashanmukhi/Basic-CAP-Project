@@ -1,0 +1,6 @@
+COLUMN TABLE app_data_Guests (
+  ID NVARCHAR(5000) NOT NULL,
+  name NVARCHAR(5000),
+  email NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

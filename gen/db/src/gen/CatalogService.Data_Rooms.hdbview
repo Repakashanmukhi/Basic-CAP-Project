@@ -1,0 +1,7 @@
+VIEW CatalogService_Data_Rooms AS SELECT
+  Rooms_0."NUMBER",
+  Rooms_0.name,
+  Rooms_0.type,
+  Rooms_0.rate,
+  Rooms_0.available
+FROM app_data_Rooms AS Rooms_0
