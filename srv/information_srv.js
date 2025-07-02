@@ -17,8 +17,8 @@ module.exports = async function (srv) {
     ];
     await cds.run(INSERT.into(Rooms).entries(sampleRooms));
     return `Sample rooms created successfully!`;
-  });
-  srv.on('CreateGuests', async () => {
+  });  
+  srv.on('createGuests', async () =>{
     var sampleGuest = { ID: '8', name: 'Tarun', email: 'tarun@gmail.com' };
     await cds.run(INSERT.into(Guests).entries(sampleGuest));
     return `Sample guest created successfully!`;
@@ -73,7 +73,7 @@ module.exports = async function (srv) {
     var query = `
       SELECT
         R.number,
-        R.name AS room_name,
+        R.name AS room_name, 
         R.rate,
         R.available,
         G.name AS guest_name,
@@ -86,7 +86,7 @@ module.exports = async function (srv) {
     return result;
   });
   srv.on('getAvailableRooms', async () => {
-    var availableRooms = await cds.run(SELECT.from(Rooms).where({ available: true }));
+    var availableRooms = await cds.run(SELECT.from(Rooms).where({ available: true }));   
     return availableRooms;
   });
   srv.on('getRoomStatus', async () => {
@@ -112,4 +112,3 @@ module.exports = async function (srv) {
     return `Room ${200} booked successfully by guest ${'Sreya'}.`;
   });
 };
-

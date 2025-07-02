@@ -21,5 +21,6 @@ using app.data from '../db/data';
    function getRoomStatus() returns String;
    function searchGuests() returns String;
    function bookRoom() returns String; 
-
 }
+
+

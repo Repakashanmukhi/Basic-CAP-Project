@@ -17,3 +17,5 @@ entity Bookings{
           room  : Association to Rooms;
           date  : Date;
 }
+
+    
