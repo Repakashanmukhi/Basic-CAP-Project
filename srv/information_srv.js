@@ -72,15 +72,15 @@ module.exports = async function (srv) {
   srv.on('getRoomGuestJoin', async () => {
     var query = `
       SELECT
-        R.number,
-        R.name AS room_name, 
-        R.rate,
-        R.available,
-        G.name AS guest_name,
-        G.email AS guest_email
-      FROM app_data_Rooms AS R
-      JOIN app_data_Guests AS G
-        ON R.name = G.name
+        Room.number,
+        Room.name AS room_name, 
+        Room.rate,
+        Room.available,
+        Guests.name AS guest_name,
+        Guests.email AS guest_email
+      FROM app_data_Rooms AS Room
+      JOIN app_data_Guests AS Guests
+        ON Room.name = Guests.name
     `;
     var result = await cds.run(query);
     return result;
