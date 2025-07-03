@@ -7,10 +7,10 @@
           "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
           "org": "81276efftrial",
           "space": "dev",
-          "instance": "Hotel-dev",
-          "key": "SharedDevKey"
+          "instance": "Hotel-db",
+          "key": "Hotel-db-key"
         },
-        "kind": "hana-cloud",
+        "kind": "hana",
         "vcap": {
           "name": "db"
         }

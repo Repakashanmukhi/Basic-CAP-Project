@@ -70,18 +70,17 @@ module.exports = async function (srv) {
     return `Guest ${guestId} updated successfully.`;
   });
   srv.on('getRoomGuestJoin', async () => {
-    var query = `
-      SELECT
-        Room.number,
-        Room.name AS room_name, 
-        Room.rate,
-        Room.available,
-        Guests.name AS guest_name,
-        Guests.email AS guest_email
-      FROM app_data_Rooms AS Room
-      JOIN app_data_Guests AS Guests
-        ON Room.name = Guests.name
-    `;
+    var query = 
+    `SELECT 
+    ID,
+    Date,
+    Number,
+    Name,
+    Type,
+    Rate,
+    Available
+    FROM   APP_DATA_BOOKINGS Data INNER JOIN  APP_DATA_ROOMS Info
+    ON Data.room_number= Info.number`
     var result = await cds.run(query);
     return result;
   });
@@ -112,3 +111,8 @@ module.exports = async function (srv) {
     return `Room ${200} booked successfully by guest ${'Sreya'}.`;
   });
 };
+
+
+
+
+

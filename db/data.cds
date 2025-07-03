@@ -1,6 +1,6 @@
-namespace app.data;
+namespace data;
 entity Rooms{
-   key number       : Integer;
+       key number       : Integer;
        name         : String;
        type         : String;
        rate         : Decimal(10,2);
@@ -13,9 +13,17 @@ entity Guests{
 }
 entity Bookings{
       key ID    : String;
-          guest : Association to Guests;
-          room  : Association to Rooms;
+          guest_ID : Association to Guests;
+          room_Number  : Association to Rooms;
           date  : Date;
 }
+@cds.persistence.exists
+entity JoinBR {
+        key date         : Date;
+        ID               : String;
+        Number           : Integer;
+        type             : String;
+        rate             : Decimal(10,2);
+    }
 
     

@@ -1,0 +1,5 @@
+VIEW data_JoinBR AS
+select Info.ID, Info.Date, Sample.Rate, Sample.Type, Sample.Number
+from  DATA_BOOKINGS Info
+inner join DATA_ROOMS Sample
+ON Info.room_Number_Number= Sample.Number;

@@ -1,7 +1,0 @@
-COLUMN TABLE app_data_Bookings (
-  ID NVARCHAR(5000) NOT NULL,
-  guest_ID NVARCHAR(5000),
-  room_number INTEGER,
-  "DATE" DATE,
-  PRIMARY KEY(ID)
-)

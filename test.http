@@ -1,8 +1,4 @@
-# GET http://localhost:4004/odata/v4/catalog/Data_Rooms
-
-
-
-
+GET http://localhost:4004/odata/v2/catalog/Data_Rooms
 
 POST http://localhost:4004/odata/v4/catalog/initSampleData
 Content-Type: application/json
@@ -13,3 +9,6 @@ Content-Type: application/json
   "rate": 4200.00,
   "available": true
 }
+
+
+GET http://localhost:4004/odata/v4/catalog/Data_BRJoin

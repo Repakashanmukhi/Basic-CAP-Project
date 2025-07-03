@@ -1,6 +1,0 @@
-VIEW CatalogService_Data_Bookings AS SELECT
-  Bookings_0.ID,
-  Bookings_0.guest_ID,
-  Bookings_0.room_number,
-  Bookings_0."DATE"
-FROM app_data_Bookings AS Bookings_0
